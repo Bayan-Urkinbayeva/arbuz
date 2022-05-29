@@ -24,7 +24,7 @@
 <input type="text" v-model="formData.address" placeholder="Адрес">
 <p class="visible" v-if="errors[1] == 'Error'">Укажите адрес</p>
 <input type="number" v-model="formData.phoneNumber" placeholder="Телефон">
-<p class="visible" v-if="errors[2] == 'Error'">Укажите номер телефона</p>
+<p class="visible" v-if="errors[2] == 'Error'">Укажите корректный номер телефона</p>
 <input type="date" v-model="formData.date" >
 <p class="visible" v-if="errors[3] == 'Error'">Укажите дату доставки</p>
 <input type="time" v-model="formData.time" >
@@ -144,28 +144,26 @@ export default {
       this.errors = [
         this.isEmpty(this.formData.basket),
         this.isFilled(this.formData.address),
-        this.isFilled(this.formData.phoneNumber),
+        this.isNumber(this.formData.phoneNumber),
         this.isFilled(this.formData.date),
         this.isFilled(this.formData.time),
         this.isBoolean(this.formData.slice)
       ]
-      if((this.formData.basket.length >= 1 || this.formData.basket.length <=3) &&
+      if(
       this.formData.address != null &&
-      this.formData.phoneNumber != null && 
+      this.formData.phoneNumber != null &&
       this.formData.date != null &&
       this.formData.time != null
       ){
         this.formIsValid = true;
       }
       if(this.formIsValid){
-        console.log('Form Submitted');
         this.formData.basket = [],
         this.formData.address=null,
         this.formData.phoneNumber=null,
         this.formData.date=null,
         this.formData.time=null,
         this.formData.slice=null
-       
       }
       else{
         console.log('Invalid form')
@@ -173,6 +171,14 @@ export default {
     },
     isFilled(value){
       return  !value ? "Error" : null;
+    },
+    isNumber(value){
+      if(!value || value.toString().length != 11){
+        return 'Error';
+      }
+      else{
+        return null
+      }
     },
     isBoolean(value) {
       if (typeof value === "boolean") {
