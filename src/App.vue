@@ -141,14 +141,12 @@ export default {
            this.formData.basket= this.formData.basket.splice(i,i)  
         }
       }
-      console.log( this.formData.basket)
+      
     },
-    onMouseOver(){
-      console.log("MouseOver")
-    },
+   
     addArbuz(arbuz){
       this.formData.basket.push(arbuz);
-      console.log(this.formData.basket)
+      
     },
     submitForm(){
       this.errors = [
@@ -166,13 +164,15 @@ export default {
       this.formData.time != null
       ){
         this.formIsValid = true;
-        
-        console.log(this.formData.basket)
-        console.log(this.formData.phoneNumber)
       }
       if(this.formIsValid){
         console.log('Form Submitted');
-        console.log(this.formData)
+        this.formData.basket = [],
+        this.formData.address=null,
+        this.formData.phoneNumber=null,
+        this.formData.date=null,
+        this.formData.time=null,
+        this.formData.slice=null
        
       }
       else{
