@@ -47,9 +47,7 @@ export default {
   },
   data(){
     return{
-      showData: false,
       errors: [],
-      showError: false,
       formIsValid:false,
       formData:{
         basket: [],
