@@ -59,21 +59,6 @@ export default {
         time: null,
         slice: ''
       },
-      arbuzStates: {
-        ripe: {
-          text: "спелый",
-          color: "#478c0e"
-        },
-        unripe: {
-          text: "неспелый",
-          color: "#76bf75"
-        },
-        sold: {
-          text: "сорван",
-          color: "#828783",
-        },
-
-      },
       arbuzes:
       [
         [
