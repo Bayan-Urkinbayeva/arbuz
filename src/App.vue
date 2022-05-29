@@ -135,14 +135,6 @@ export default {
     }
   },
   methods:{
-    remove(id){
-      for(let i=0; i< this.formData.basket.length; i++){
-        if(id == this.formData.basket[i].id ){
-           this.formData.basket= this.formData.basket.splice(i,i)  
-        }
-      }
-      
-    },
    
     addArbuz(arbuz){
       this.formData.basket.push(arbuz);
